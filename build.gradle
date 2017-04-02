@@ -1,18 +1,21 @@
 plugins {
-	id 'java'
-	id 'org.springframework.boot' version '1.5.2.RELEASE'
+    id 'java'
+    id 'org.springframework.boot' version '1.5.2.RELEASE'
 }
 
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
-	compile('org.springframework.boot:spring-boot-starter-web')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
-	testCompile('au.com.dius:pact-jvm-consumer-junit_2.11:3.3.7')
+    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+    compile('org.springframework.boot:spring-boot-starter-web')
+
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('org.seleniumhq.selenium:htmlunit-driver')
+    testCompile('org.seleniumhq.selenium:selenium-support')
+    testCompile('au.com.dius:pact-jvm-consumer-junit_2.11:3.3.7')
 }
