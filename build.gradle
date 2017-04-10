@@ -19,3 +19,7 @@ dependencies {
     testCompile('org.seleniumhq.selenium:selenium-support')
     testCompile('au.com.dius:pact-jvm-consumer-junit_2.11:3.3.7')
 }
+
+test {
+    systemProperties['pact.rootDir'] = "$buildDir/pacts"
+}
