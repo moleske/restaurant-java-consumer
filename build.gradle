@@ -18,12 +18,16 @@ dependencies {
     implementation('org.springframework.boot:spring-boot-starter-thymeleaf')
     implementation('org.springframework.boot:spring-boot-starter-web')
 
-    testImplementation('org.springframework.boot:spring-boot-starter-test')
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'junit', module: 'junit;'
+    }
     testImplementation('org.seleniumhq.selenium:htmlunit-driver')
     testImplementation('org.seleniumhq.selenium:selenium-support')
-    testImplementation('au.com.dius:pact-jvm-consumer-junit:4.0.10')
+    testImplementation('au.com.dius:pact-jvm-consumer-junit_2.11:3.5.24')
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
 tasks.named('test') {
     systemProperties['pact.rootDir'] = "$buildDir/pacts"
+    useJUnitPlatform()
 }
